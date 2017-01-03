@@ -60,19 +60,16 @@ $ mkdir eclipse-workspace
 ## Specify Eclipse Workspace Folder to Eclipse
 
 Start Eclipse using the [run script](eclipse-run-script/)
-and select the workspace folder created in the previous step.
+and select the workspace folder created in the previous step, for example for software developer "sam":
 
 ![Eclipse new workspace](eclipse-workspace-images/eclipse-workspace-select.png)
 
-
-The following blank workspace will be shown:
+Pressing ***OK*** will create the `.metadata` folder in the workspace folder, under which are many files for plugins and
+to manage project files.  The following blank workspace will be shown:
 
 ![Eclipse blank workspace](eclipse-workspace-images/eclipse-workspace-blank.png)
 
 The welcome tab can be closed to reveal the normal interface.
-
-Pressing ***OK*** will create the workspace `.metadata` folder, under which are many files for plugins and
-to manage project files.
 
 **Workspace files will not be committed to the Git repository because they are large, dynamic, and can vary by
 developer.**  If workspace files were committed to the repository, then developers could undo each other's workspace configuration on a regular basis.
@@ -87,4 +84,4 @@ Additional configuration of the workspace may be desirable.
 
 ## Next Step
 
-See the configuration of the [Eclipse Project](eclipse-statecu-project).
+See the configuration of the [Eclipse StateCU Project](eclipse-statecu-project).

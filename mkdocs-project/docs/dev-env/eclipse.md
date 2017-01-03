@@ -32,7 +32,7 @@ Use the following link:
 * [Eclipse Downloads](http://www.eclipse.org/downloads/eclipse-packages/)
 
 This will default to the newest environment, which is Neon.  Based on the Photran documentation, use the older Mars version.
-Therefore, use the links on the right side of the download page to access Eclipse Mars downloads:o
+Therefore, use the links on the right side of the download page to access Eclipse Mars downloads:
 
 * [Eclipse Mars](http://www.eclipse.org/mars/)
 

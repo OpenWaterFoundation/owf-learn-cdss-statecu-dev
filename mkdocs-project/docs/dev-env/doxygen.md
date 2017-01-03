@@ -13,6 +13,8 @@ This documentation includes the following sections:
 * [Install Doxygen](#install-doxygen)
 	+ [Linux](#linux)
 	+ [Windows](#windows)
+* [Install GraphViz](#install-graphviz)
+* [Configure Doxygen Project](#configure-doxygen-project)
 
 ## Install Doxygen
 
@@ -41,6 +43,21 @@ Run the installer as administrator and complete the following steps.
 
 ![install Doxygen 8](doxygen-images/install-doxygen-8.png)
 
+## Install GraphViz
+
+The GraphViz software is needed to create the graphs showing how code modules call each other.
+Use the following to download a Windows version of GraphViz:
+
+* [Softpedia GraphViz Review](http://www.softpedia.com/get/Others/Miscellaneous/Graphviz.shtml)
+
+After downloading, run the installer program as follows.
+
+![install GraphViz 1](doxygen-images/install-graphviz-1.png)
+
+![install GraphViz 1](doxygen-images/install-graphviz-2.png)
+
+![install GraphViz 1](doxygen-images/install-graphviz-3.png)
+
 ## Configure Doxygen Project
 
-**TODO smalers 2017-01-01 need to document based on StateMod HowTo document**
+A Doxygen project is configured as part of the [Initial Project Setup / Doxygen](../project-init/doc-doxygen/) - do not do now.

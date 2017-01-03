@@ -23,7 +23,7 @@ This documentation includes the following sections:
 
 ### Linux
 
-**TODO smalers 2016-12-31 Linux instructiosn will be added after Windows version is comlete.**
+**TODO smalers 2016-12-31 Linux instructions will be added after Windows version is comlete.**
 
 ### Windows
 

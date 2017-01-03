@@ -2,7 +2,8 @@
 
 Eclipse is used for the integrated development environment (IDE) and Eclipse requires Java to run.
 The Eclipse Photran plugin is used to provide a Fortran IDE.
-The following Eclipse/Photran download page indicates that Eclipse Mars is required.
+The following Eclipse/Photran download page indicates that Eclipse Mars is required
+(**don't download it yet - that is described in a later step**).
 
 * [Downloading Photran](https://eclipse.org/photran/download.php)
 

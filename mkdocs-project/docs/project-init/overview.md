@@ -26,7 +26,8 @@ However, few changes have occurred since 2012 and the following discussion focus
 **TODO smalers 2016-12-31 need to decide if need to explain earlier history**
 
 The StateCU 13.00 code was loaded into Jim Brannon's private `statecu-project` GitHub repository on January 20, 2011.
-This repository only contains source code, with no documentation or tests.
+This repository only contains source code, with no documentation or tests, and all source code files are
+located in the main repository folder.
 The repository does not contain any Eclipse files, although Eclipse/Photran was used for recent development.
 Several code changes occurred on a limited number of files since that time,
 mainly to support compiling on Linux with `gfortran`.
@@ -36,10 +37,14 @@ as of Nov 18, 2016, and found only minor differences due to end-of-line characte
 Consequently, Jim Brannon's GitHub repository contains the latest version of the code, marked as version 13.10.
 The latest StateCU version on the CDSS website as of Dec 31, 2016, is 13.03.
 
-OWF is establishing a more comprehensive StateCU repository and development environment as part of the OpenCDSS effort,
+The OpenCDSS project, led by OWF, is establishing a more comprehensive StateCU repository and development environment,
 in particular to establish a development environment that can support multiple developers.
 Consequently, the code from Jim Brannon's repository was migrated to the OWF private repository named `cdss-app-statecu-fortran`,
-retaining the brief code history.  The code organization was restructured as per the folder structure discussed in the
+retaining the code history. The repository was cloned to the OWF repository and the remote reference was deleted so that no
+link to the Jim Brannon repository remains.
+This is appropriate because the OpenCDSS repository will be the main repository going forward.
+
+The code organization was restructured as per the folder structure discussed in the
 following section and additional content was added, including this developer documentation.
 The goal is to allow a new developer to clone the repository and get up and running as quickly as possible,
 while also avoiding user-specific files in the repository, which would cause ongoing conflicts in file content.
@@ -74,13 +79,21 @@ The following folder structure is similar to the Windows version other than diff
                     .git/                          (Git local repository - DO NOT TOUCH DIRECTLY)
                     .gitattributes                 (Git repository properties)
                     .gitignore                     (Git repository global ignore list)
-                        doc-dev-mkdocs-project/    (MkDocs project for the developer documentation)
-                        doc-user-mkdocs-project/   (MkDocs project for the user documentation)
+                    doc/                           (Legacy documentation, such as Word user manual)
+                    doc-dev-mkdocs-project/        (MkDocs project for the developer documentation)
+                    doc-user-mkdocs-project/       (MkDocs project for the user documentation)
                     src/                           (StateCU source code, main and tests)
                         main/                      (StateCU program code)
-                            *.for
-                            *.inc
+                            fortran/               (StateCU Fortran code)
+                                *.for
+                                *.inc
+                                makefile 
+                            resources/             (Envisioned as non-Fortan code that may be needed - supporting files)
                         test/                      (StateCU tests)
+                            fortran/               (Envisioned for Fortran unit tests)
+                                *.for
+                            python/                (Envisioned for pytest functional tests)
+                                *.py
 ```
 
 ### Windows
@@ -102,13 +115,21 @@ C:\Users\user\                                     (Software developer's home fo
                     .git\                          (Git local repository - DO NOT TOUCH DIRECTLY)
                     .gitattributes                 (Git repository properties)
                     .gitignore                     (Git repository global ignore list)
-                        doc-dev-mkdocs-project\    (MkDocs project for the developer documentation)
-                        doc-user-mkdocs-project\   (MkDocs project for the user documentation)
+                    doc\                           (Legacy documentation, such as Word user manual)
+                    doc-dev-mkdocs-project\        (MkDocs project for the developer documentation)
+                    doc-user-mkdocs-project\       (MkDocs project for the user documentation)
                     src\                           (StateCU source code, main and tests)
                         main\                      (StateCU program code)
-                            *.for
-                            *.inc
+                            fortran\               (StateCU Fortran code)
+                                *.for
+                                *.inc
+                                makefile 
+                            resources\             (Envisioned as non-Fortan code that may be needed - supporting files)
                         test\                      (StateCU tests)
+                            fortran\               (Envisioned for Fortran unit tests)
+                                *.for
+                            python\                (Envisioned for pytest functional tests)
+                                *.py
 ```
 
 ## Eclipse File Location Overview
@@ -122,13 +143,16 @@ although some steps were actually implemented in slightly different order for pr
 
 * Initialize software development folder and Git repository to receive files
 	+ [Create Development Home Folder](home-folder/) - manually create project home folder that will hold all the software development files
-	+ [GitHub Git Repository](github/) - create the GitHub repository and clone the empty repository into the development files
-* Initialize documentation
-	+ [Documentation, Developer (MkDocs)](doc-dev/) - create initial MkDocs project for developer documentation
-	+ [Documentation, User (MkDocs)](doc-user/) - create initial MkDocs project for user documentation
-* Initialize Eclipse Development Environment
+	+ [GitHub Git Repository](github/) - create the GitHub repository from the legacy repository
+* Initialize Eclipse development environment
 	+ [Eclipse Run Script](eclipse-run-script/) - the script ensures that the proper version of Eclipse and Java are used
 	+ [Eclipse Workspace](eclipse-workspace/) - create an Eclipse workspace for the StateCU software project
 	+ [Eclipse StateCU Project](eclipse-statecu-project/) - configure the project connected to the Git repository files
-	+ [Eclipse Environment Configuration](eclipse-environment/) - configure Eclipse to find compilers
-
+	+ [Eclipse Folder Structure](eclipse-folder-structure/) - implement the development folder structure
+	+ [Eclipse Make Targets](eclipse-make-targets/) - implement make targets to run makefile
+* Initialize default utility scripts
+	+ [Build Utility Scripts](build-util/) - helpful build utility scripts for developers 
+* Initialize documentation
+	+ [Documentation, Developer (MkDocs)](doc-dev/) - create initial MkDocs project for developer documentation
+	+ [Documentation, User (MkDocs)](doc-user/) - create initial MkDocs project for user documentation
+	+ [Doxygen](doc-doxygen/) - configure Doxygen project to generate API documentation

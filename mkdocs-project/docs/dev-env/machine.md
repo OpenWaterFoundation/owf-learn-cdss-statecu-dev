@@ -12,10 +12,10 @@ Creating 64-bit executables will require understanding impacts on the code logic
 coupled with sufficient testing to ensure that software behavior is as intended.
 Care must be taken to use a development environment that produces 32-bit static executables...until there is time to evaluate 64-bit.
 
-The initial approach for StateCU is to use a MinGW environment within Windows,
+**The initial approach for StateCU is to use a MinGW environment within Windows,
 given that this approach has been implemented with success previously.
 When more time is available, Cygwin and Linux development environments will also be tested and documented,
-to allow more flexibility for developers that prefer or require those environments.
+to allow more flexibility for developers that prefer or require those environments.**
 
 See the following resources:
 
@@ -26,7 +26,7 @@ The following sections are included in this documentation:
 
 * [Linux](#linux)
 * [Windows](#windows)
-	+ [Install MinGW - Native Windows 32-bit](#install-mingw-native-windows-32-bit) - may be appropriate for 32-bit StateCU executables
+	+ [Install MinGW - Native Windows 32-bit](#install-mingw-native-windows-32-bit) - for 32-bit StateCU executables
 	+ [Install Cygwin](#install-cygwin) - seems to be more current than above Native Windows build
 
 ## Linux
@@ -59,7 +59,10 @@ See the following installation instructions:
 
 * [MinGW Getting Started](http://www.mingw.org/wiki/Getting_Started)
 
-As recommended, use the Graphical User Interface Installer.
+If MinGW has previously been installed, it does not need to be reinstalled.
+Look for a `C:\MinGW` folder.  If it exists, then MinGW was previously installed and can be used for StateCU development.
+
+If MinGW needs to be installed, then as recommended in the MinGW Getting Started documentation, use the Graphical User Interface Installer.
 First retrieve the [`mingw-get-setup.exe`](https://sourceforge.net/projects/mingw/files/latest/download) program (click on the link),
 which will save to the `Downloads` folder.
 
@@ -134,7 +137,7 @@ C:/MinGW                                /mingw
 As per the installation instructions, in order for the operating system to find the programs,
 the `PATH` environment variable needs to be updated.
 The installation instructions recommend setting with a script.
-Therefore, create a script `setup-mingw-path.bat`, with contents similar to the following:
+Therefore, create a script `setup-mingw-env.bat`, with contents similar to the following:
 
 ```bat
 rem Setup the MinGW environment variables
@@ -143,9 +146,8 @@ rem See:  http://www.mingw.org/wiki/Getting_Started
 rem Update PATH to find the MinGW bin folder and also the MSYS folders (Unix utilities).
 set PATH=C:\MinGW\bin;C:\MinGW\MSYS\1.0\local\bin;C:\MinGW\MSYS\1.0\bin;%PATH%
 ```
-
-**TODO smalers 2016-12-31 need to include this in the repository and circle back to update info here.
-Also need to determine if a Linux shell version is also needed for running in Bash**
+This script is included in the repository in a `build-util` folder for use by developers.
+It is also called by the `run-eclipse-statecu-mingw.bat` batch file to facilitate running Eclipse with the correct environment.
 
 #### Confirm Compiler Version
 
